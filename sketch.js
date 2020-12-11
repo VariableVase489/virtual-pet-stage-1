@@ -1,5 +1,5 @@
 //Create variables here
-var dog, happyDog, database, foodS, foodStock, dogImg, dogImg1;
+var dog, happyDog, database, foodS, foodStock, instructions, dogImg, dogImg1;
 
 function preload()
 {
@@ -10,6 +10,8 @@ function preload()
 
 function setup() {
   createCanvas(500, 500);
+
+  instructions = "Press the up key to feed your dog!";
 
   db = firebase.database();
 
@@ -28,6 +30,8 @@ function draw() {
   background(rgb(46, 139, 87));
   fill("#580015");
   text("Food Remaining:"+foodS,150, 450);
+  fill("#000000");
+  text(instructions,125,475);
   if (keyWentDown(UP_ARROW)) {
     dog.changeImage("dog Image 1")
     writeStock(foodS);
